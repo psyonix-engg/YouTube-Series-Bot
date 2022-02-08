@@ -1,9 +1,10 @@
 const consola = require("consola");
-const { Client, Intents, Collection } = require("discord.js");
+const { Client, Intents, Collection, MessageEmbed } = require("discord.js");
 const path = require("path");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const fs = require("fs");
+const Utils = require("./Utils");
 
 class MyClient extends Client {
   constructor(token, dev_guild_id, client_id) {
@@ -14,6 +15,7 @@ class MyClient extends Client {
     this.client_id = client_id;
 
     this.logger = consola;
+    this.embeds = Utils;
 
     this.commands = new Collection();
     this.events = new Collection();
